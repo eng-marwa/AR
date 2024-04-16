@@ -1,0 +1,138 @@
+"main@23302" prio=5 tid=0x2 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at androidx.paging.PagingSource.<init>(PagingSource.kt:83)
+	  at com.marwa.ar.data.datasource.repository.paging.NewsDataSource.<init>(NewsDataSource.kt:12)
+	  at com.marwa.ar.data.datasource.repository.NewsRepositoryImpl$getNews$2.invoke(NewsRepositoryImpl.kt:25)
+	  at com.marwa.ar.data.datasource.repository.NewsRepositoryImpl$getNews$2.invoke(NewsRepositoryImpl.kt:28)
+	  at androidx.paging.Pager$flow$2.invokeSuspend(Pager.kt:82)
+	  at androidx.paging.Pager$flow$2.invoke(Pager.kt:-1)
+	  at androidx.paging.Pager$flow$2.invoke(Pager.kt:-1)
+	  at androidx.paging.PageFetcher.generateNewPagingSource(PageFetcher.kt:210)
+	  at androidx.paging.PageFetcher.access$generateNewPagingSource(PageFetcher.kt:32)
+	  at androidx.paging.PageFetcher$flow$1$2.invokeSuspend(PageFetcher.kt:73)
+	  at androidx.paging.PageFetcher$flow$1$2.invoke(Unknown Source:-1)
+	  at androidx.paging.PageFetcher$flow$1$2.invoke(Unknown Source:-1)
+	  at androidx.paging.FlowExtKt$simpleScan$1$1.emit(FlowExt.kt:57)
+	  at kotlinx.coroutines.flow.internal.SafeCollectorKt$emitFun$1.invoke(SafeCollector.kt:15)
+	  at kotlinx.coroutines.flow.internal.SafeCollectorKt$emitFun$1.invoke(SafeCollector.kt:15)
+	  at kotlinx.coroutines.flow.internal.SafeCollector.emit(SafeCollector.kt:87)
+	  at kotlinx.coroutines.flow.internal.SafeCollector.emit(SafeCollector.kt:66)
+	  at androidx.paging.PageFetcher$flow$1$1.invokeSuspend(PageFetcher.kt:63)
+	  at androidx.paging.PageFetcher$flow$1$1.invoke(PageFetcher.kt:-1)
+	  at androidx.paging.PageFetcher$flow$1$1.invoke(PageFetcher.kt:-1)
+	  at kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1.collect(Emitters.kt:79)
+	  at androidx.paging.FlowExtKt$simpleScan$1.invokeSuspend(FlowExt.kt:56)
+	  at androidx.paging.FlowExtKt$simpleScan$1.invoke(FlowExt.kt:-1)
+	  at androidx.paging.FlowExtKt$simpleScan$1.invoke(FlowExt.kt:-1)
+	  at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:61)
+	  at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:230)
+	  at kotlinx.coroutines.flow.FlowKt__TransformKt$filterNotNull$$inlined$unsafeTransform$1.collect(Emitters.kt:51)
+	  at kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3.invokeSuspend(Merge.kt:27)
+	  at kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3.invoke(Merge.kt:-1)
+	  at kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3.invoke(Merge.kt:-1)
+	  at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	  at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+	  at kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest.flowCollect(Merge.kt:25)
+	  at kotlinx.coroutines.flow.internal.ChannelFlowOperator.collectTo$suspendImpl(ChannelFlow.kt:157)
+	  at kotlinx.coroutines.flow.internal.ChannelFlowOperator.collectTo(ChannelFlow.kt:-1)
+	  at kotlinx.coroutines.flow.internal.ChannelFlow$collectToFun$1.invokeSuspend(ChannelFlow.kt:60)
+	  at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	  at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	  at kotlinx.coroutines.EventLoop.processUnconfinedEvent(EventLoop.common.kt:68)
+	  at kotlinx.coroutines.internal.DispatchedContinuationKt.resumeCancellableWith(DispatchedTask.kt:203)
+	  at kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable(Cancellable.kt:30)
+	  at kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable$default(Cancellable.kt:25)
+	  at kotlinx.coroutines.CoroutineStart.invoke(CoroutineStart.kt:110)
+	  at kotlinx.coroutines.AbstractCoroutine.start(AbstractCoroutine.kt:126)
+	  at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Builders.common.kt:56)
+	  at kotlinx.coroutines.BuildersKt.launch(Unknown Source:1)
+	  at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch$default(Builders.common.kt:47)
+	  at kotlinx.coroutines.BuildersKt.launch$default(Unknown Source:1)
+	  at com.marwa.ar.presentation.news.NewsViewModel.getNews(NewsViewModel.kt:24)
+	  at com.marwa.ar.MainActivity$NewsScreen$1.invokeSuspend(MainActivity.kt:94)
+	  at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	  at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	  at androidx.compose.ui.platform.AndroidUiDispatcher.performTrampolineDispatch(AndroidUiDispatcher.android.kt:81)
+	  at androidx.compose.ui.platform.AndroidUiDispatcher.access$performTrampolineDispatch(AndroidUiDispatcher.android.kt:41)
+	  at androidx.compose.ui.platform.AndroidUiDispatcher$dispatchCallback$1.run(AndroidUiDispatcher.android.kt:57)
+	  at android.os.Handler.handleCallback(Handler.java:958)
+	  at android.os.Handler.dispatchMessage(Handler.java:99)
+	  at android.os.Looper.loopOnce(Looper.java:205)
+	  at android.os.Looper.loop(Looper.java:294)
+	  at android.app.ActivityThread.main(ActivityThread.java:8052)
+	  at java.lang.reflect.Method.invoke(Method.java:-1)
+	  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:578)
+	  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:946)
+
+"FinalizerWatchdogDaemon@28059" daemon prio=5 tid=0x36 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 blocks FinalizerWatchdogDaemon@28059
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.Object.wait(Object.java:386)
+	  at java.lang.Object.wait(Object.java:524)
+	  at java.lang.Daemons$FinalizerWatchdogDaemon.sleepUntilNeeded(Daemons.java:385)
+	  - locked <0x6da4> (a java.lang.Daemons$FinalizerWatchdogDaemon)
+	  at java.lang.Daemons$FinalizerWatchdogDaemon.runInternal(Daemons.java:365)
+	  at java.lang.Daemons$Daemon.run(Daemons.java:140)
+	  at java.lang.Thread.<obsolete>(Thread.java:-1)
+
+"FinalizerDaemon@28060" daemon prio=5 tid=0x35 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 blocks FinalizerDaemon@28060
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.Object.wait(Object.java:386)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:203)
+	  - locked <0x6da5> (a java.lang.Object)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:224)
+	  at java.lang.Daemons$FinalizerDaemon.runInternal(Daemons.java:300)
+	  at java.lang.Daemons$Daemon.run(Daemons.java:140)
+	  at java.lang.Thread.<obsolete>(Thread.java:-1)
+
+"ReferenceQueueDaemon@28065" daemon prio=5 tid=0x34 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 blocks ReferenceQueueDaemon@28065
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.Object.wait(Object.java:386)
+	  at java.lang.Object.wait(Object.java:524)
+	  at java.lang.Daemons$ReferenceQueueDaemon.runInternal(Daemons.java:232)
+	  - locked <0x516> (a java.lang.Class)
+	  at java.lang.Daemons$Daemon.run(Daemons.java:140)
+	  at java.lang.Thread.<obsolete>(Thread.java:-1)
+
+"HeapTaskDaemon@28062" daemon prio=5 tid=0x33 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at dalvik.system.VMRuntime.runHeapTasks(VMRuntime.java:-1)
+	  at java.lang.Daemons$HeapTaskDaemon.runInternal(Daemons.java:621)
+	  at java.lang.Daemons$Daemon.run(Daemons.java:140)
+	  at java.lang.Thread.<obsolete>(Thread.java:-1)
+
+"Signal Catcher@28057" daemon prio=10 tid=0x31 nid=NA waiting
+  java.lang.Thread.State: WAITING
+
+"ADB-JDWP Connection Control Thread@28058" daemon prio=0 tid=0x32 nid=NA waiting
+  java.lang.Thread.State: WAITING
+
+"Jit thread pool worker thread 0@28061" daemon prio=5 tid=0x37 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"binder:29456_1@28063" prio=5 tid=0x38 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"binder:29456_2@28064" prio=5 tid=0x39 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"binder:29456_3@28066" prio=5 tid=0x3a nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Profile Saver@28067" daemon prio=5 tid=0x3b nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"RenderThread@23802" daemon prio=7 tid=0x3f nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"hwuiTask0@27222" daemon prio=6 tid=0x40 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"hwuiTask1@27223" daemon prio=6 tid=0x41 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
