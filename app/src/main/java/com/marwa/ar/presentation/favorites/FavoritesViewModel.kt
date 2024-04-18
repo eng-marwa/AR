@@ -11,16 +11,19 @@ import com.marwa.ar.domain.entity.NewsEntity
 import com.marwa.ar.domain.usecase.AddToFavoriteUseCase
 import com.marwa.ar.domain.usecase.GetItemByIdUseCase
 import com.marwa.ar.domain.usecase.RemoveFromFavoriteUseCase
+import com.marwa.ar.domain.usecase.ViewAllFavoritesUseCase
 import com.marwa.ar.domain.usecase.ViewFavoriteItemsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class FavoritesViewModel(
     private val addToFavoriteUseCase: AddToFavoriteUseCase,
     private val viewFavoriteItemsUseCase: ViewFavoriteItemsUseCase,
+    private val viewAllFavoritesUseCase: ViewAllFavoritesUseCase,
     private val removeFromFavoriteUseCase: RemoveFromFavoriteUseCase,
     private val getItemByIdUseCase: GetItemByIdUseCase
 ) : ViewModel() {
@@ -32,7 +35,7 @@ class FavoritesViewModel(
     val newsAdded: MutableStateFlow<BaseViewModel.ViewState<Boolean>> get() = _newsAddedState
 
     fun addToFavorite(
-        entity: NewsEntity,
+        entity: NewsEntity,  onFavoriteClick: () -> Unit
     ) {
         viewModelScope.launch {
             addToFavoriteUseCase(entity)
@@ -47,6 +50,7 @@ class FavoritesViewModel(
                         _newsAddedState.value =
                             BaseViewModel.ViewState.Failed(throwable = BaseException(message = "Failed to add to favorite"))
                     }
+                    onFavoriteClick()
                 }
         }
     }
@@ -63,6 +67,15 @@ class FavoritesViewModel(
                 .collect {
                     _favNewsState.value = it
                 }
+        }
+    }
+
+    fun viewAllFavorites() {
+        viewModelScope.launch {
+            favoriteList.clear()
+            withContext(Dispatchers.IO) {
+                favoriteList.addAll(viewAllFavoritesUseCase())
+            }
         }
     }
 
@@ -90,13 +103,17 @@ class FavoritesViewModel(
         viewModelScope.launch {
             getItemByIdUseCase(entity.title)
                 .flowOn(Dispatchers.IO)
-                .collect { entity->
-                    if (entity!= null && !favoriteList.contains(entity)) {
+                .collect { entity ->
+                    if (entity != null && !favoriteList.contains(entity)) {
                         favoriteList.add(entity)
                     }
                     Log.d("TAG", "isFavorite: ${favoriteList}")
                 }
         }
+    }
+
+    fun contains(title: String): Boolean {
+        return favoriteList.any { it.title == title }
     }
 
 }

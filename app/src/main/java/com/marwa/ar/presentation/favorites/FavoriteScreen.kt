@@ -29,7 +29,7 @@ fun FavoriteScreen(
     ) {
         item { Spacer(modifier = Modifier.padding(4.dp)) }
         items(newsPagingItems.itemCount) { index ->
-            if(favoritesViewModel.favoriteList.contains(newsPagingItems[index]!!)){
+            if(favoritesViewModel.contains(newsPagingItems[index]!!.title)){
                 favoritesViewModel.favoriteList.add(newsPagingItems[index]!!)
             }
             FavoriteItem(

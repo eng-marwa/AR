@@ -7,6 +7,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
@@ -28,26 +30,29 @@ fun NewsScreen(
         viewModel.newsState.collectAsLazyPagingItems()
     LaunchedEffect(Unit) {
         viewModel.getNews("bitcoin")
+        favoritesViewModel.viewAllFavorites()
     }
-
 
     LazyColumn(
         modifier = Modifier.padding(4.dp)
     ) {
         item { Spacer(modifier = Modifier.padding(4.dp)) }
         items(newsPagingItems.itemCount) { index ->
+            val isFavorite = remember { mutableStateOf(false) }
+
             val item = newsPagingItems[index]!!.toNewEntity()
-            LaunchedEffect(Unit) {
-                favoritesViewModel.isFavorite(item)
-            }
-            Log.d("TAG", "items====>: ${favoritesViewModel.favoriteList} ")
+
+            isFavorite.value = favoritesViewModel.contains(item.title)
+
             NewsItem(
                 item = item,
                 favoritesViewModel = favoritesViewModel,
                 onFavoriteClick = {
-                    item.isFavorite = favoritesViewModel.favoriteList.contains(item)
-                    favoritesViewModel.addToFavorite(item)
-                }
+                    favoritesViewModel.addToFavorite(item) {
+                        isFavorite.value = favoritesViewModel.contains(item.title)
+                    }
+                },
+                isFavorite = isFavorite
             )
         }
 

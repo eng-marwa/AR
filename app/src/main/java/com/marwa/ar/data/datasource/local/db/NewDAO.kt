@@ -23,4 +23,8 @@ interface NewsDao {
     @Query("SELECT * FROM NEWS_TABLE WHERE title = :title")
     suspend fun getNewsById(title: String): NewsEntity
 
+    @Query("SELECT * FROM NEWS_TABLE")
+    suspend fun getAllFavoriteItems(): List<NewsEntity>
+
+
 }

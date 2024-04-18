@@ -34,7 +34,9 @@ class FavoritesRepositoryImpl(
         newsDao.deleteNews(entity)
 
     override suspend fun getNewsById(title: String) = newsDao.getNewsById(title)
-
+    override suspend fun getAllFavoriteItems(): List<NewsEntity> {
+        return newsDao.getAllFavoriteItems()
+    }
 }
 
 

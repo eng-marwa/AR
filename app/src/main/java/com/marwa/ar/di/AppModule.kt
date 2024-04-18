@@ -15,6 +15,7 @@ import com.marwa.ar.domain.usecase.AddToFavoriteUseCase
 import com.marwa.ar.domain.usecase.GetItemByIdUseCase
 import com.marwa.ar.domain.usecase.RemoveFromFavoriteUseCase
 import com.marwa.ar.domain.usecase.SearchForNewsUseCase
+import com.marwa.ar.domain.usecase.ViewAllFavoritesUseCase
 import com.marwa.ar.domain.usecase.ViewFavoriteItemsUseCase
 import com.marwa.ar.presentation.favorites.FavoritesViewModel
 import com.marwa.ar.presentation.news.NewsViewModel
@@ -25,7 +26,7 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { NewsViewModel(get()) }
-    viewModel { FavoritesViewModel(get(),get() , get() ,get()) }
+    viewModel { FavoritesViewModel(get(), get(), get(), get(), get()) }
 
 }
 val repositoryModule = module {
@@ -43,6 +44,7 @@ val useCasesModule = module {
     factory { ViewFavoriteItemsUseCase(get()) }
     factory { RemoveFromFavoriteUseCase(get()) }
     factory { GetItemByIdUseCase(get()) }
+    factory { ViewAllFavoritesUseCase(get()) }
 }
 val dataSourceModule = module {
     factory<INewsRemoteDS> { NewsRemoteDSImpl(get()) }

@@ -9,4 +9,5 @@ interface IFavoritesRepository {
     suspend fun getFavoriteItems(): Flow<PagingData<NewsEntity>>
     suspend fun removeFromFavorite(entity: NewsEntity): Int
     suspend fun getNewsById(title: String):NewsEntity
+    suspend fun getAllFavoriteItems(): List<NewsEntity>
 }

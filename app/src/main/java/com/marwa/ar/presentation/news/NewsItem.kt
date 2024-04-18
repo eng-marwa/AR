@@ -18,6 +18,7 @@ import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,7 +40,8 @@ import kotlinx.coroutines.launch
 fun NewsItem(
     item: NewsEntity,
     favoritesViewModel: FavoritesViewModel,
-    onFavoriteClick: () -> Unit
+    onFavoriteClick: () -> Unit,
+    isFavorite: MutableState<Boolean>
     ) {
     Card(
         modifier = Modifier
@@ -106,7 +108,7 @@ fun NewsItem(
                         .align(Alignment.TopEnd)
                 ) {
                     Icon(
-                        imageVector = if (favoritesViewModel.favoriteList.contains(item)) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                        imageVector = if (isFavorite.value) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                         contentDescription = null,
                         tint = Color.Red
                     )
