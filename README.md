@@ -14,5 +14,6 @@ This project is a demonstration of integrating various modern Android technologi
 
 ## Screenshots
 
-
+<img src="Screenshot_1716862397.png" width=250 height=250/>
+<img src="Screenshot_1716862397.png" width=250 height=250/>
 
